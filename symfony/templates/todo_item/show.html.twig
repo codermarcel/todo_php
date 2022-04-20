@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TodoItem{% endblock %}
+
+{% block body %}
+    <h1>TodoItem</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ todo_item.id }}</td>
+            </tr>
+            <tr>
+                <th>Text</th>
+                <td>{{ todo_item.text }}</td>
+            </tr>
+            <tr>
+                <th>IsFinished</th>
+                <td>{{ todo_item.isFinished ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ todo_item.createdAt }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_todo_item_index') }}">back to list</a>
+
+    <a href="{{ path('app_todo_item_edit', {'id': todo_item.id}) }}">edit</a>
+
+    {{ include('todo_item/_delete_form.html.twig') }}
+{% endblock %}
